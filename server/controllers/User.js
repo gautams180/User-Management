@@ -94,13 +94,15 @@ export const updateUserDetails = async(req,res) => {
         } = req.body;
 
 
-        const user = await UserModel.update({
+        const result = await UserModel.update({
             firstName: firstName,
             lastName: lastName,
         },
         {
             where: { id: id },
         });
+
+        const user = await UserModel.findOne({ where: { id: id } });
 
         console.log("Updated user: ",user);
 

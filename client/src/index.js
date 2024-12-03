@@ -7,10 +7,12 @@ import {Provider} from 'react-redux'
 import {Toaster} from 'react-hot-toast'
 import rootReducer from './redux/reducer';
 import { configureStore } from '@reduxjs/toolkit';
+import { thunk } from 'redux-thunk';
+import { applyMiddleware } from '@reduxjs/toolkit';
 
 const store = configureStore({
   reducer: rootReducer
-})
+},applyMiddleware(thunk))
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

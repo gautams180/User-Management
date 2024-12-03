@@ -23,11 +23,11 @@ export function login(email, password, navigate) {
                 }
             )
 
-            console.log("Login Api Response.......",response);
-
             if(!response.data.success) {
                 throw new Error(response.data.message)
             }
+
+            console.log("Login API Response.......",response);
 
             toast.success("Login Successfull");
             dispatch(setToken(response.data.token));

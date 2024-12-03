@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { getAllUsers } from '../services/operations/userApi';
-import { Table, Tbody, Thead, Tr, Td } from 'react-super-responsive-table'
 
 const Users = () => {
 
@@ -43,54 +42,6 @@ const Users = () => {
                 </div>
             ))}
         </div>
-
-        {/* <Table className='text-black'>
-            <Thead>
-                <Tr>
-                    <Td>
-                        ID
-                    </Td>
-                    <Td>
-                        First Name
-                    </Td>
-                    <Td>
-                        Last Name
-                    </Td>
-                    <Td>
-                        Email
-                    </Td>
-                </Tr>
-            </Thead>
-            <Tbody>
-                {
-                    users.length === 0 ? (
-                        <Tr>
-                            <Td>
-                                No users found
-                            </Td>
-                        </Tr>
-                    ) 
-                    : (
-                        users.map((user) => (
-                            <Tr>
-                                <Td>
-                                    {user.id}
-                                </Td>
-                                <Td>
-                                    {user.firstName}
-                                </Td>
-                                <Td>
-                                    {user.lastName}
-                                </Td>
-                                <Td>
-                                    {user.email}
-                                </Td>
-                            </Tr>
-                        ))
-                    )
-                }
-            </Tbody>
-        </Table> */}
 
 
 

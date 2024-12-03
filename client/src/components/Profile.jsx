@@ -33,12 +33,17 @@ const Profile = () => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateUserDetails(id, firstname, lastName, email));
+        dispatch(updateUserDetails(id, firstname, lastName, email, navigate));
     }
 
-    const handleDelete = async (e) => {
-      e.preventDefault();
-      await dispatch(deleteProfile(id));
+    async function handleDelete() {
+      try {
+        dispatch(deleteProfile(id, navigate));
+      }
+      catch(error) {
+        console.log("ERROR MESSAGE - ",error);
+      }
+
     }
 
   return (
@@ -96,6 +101,7 @@ const Profile = () => {
             </form>
 
             <button 
+                type='button'
                 onClick={handleDelete}
                 className='bg-[#c1121f] p-2 rounded-md '
             >
@@ -105,9 +111,9 @@ const Profile = () => {
             
         </div>
 
-        <Link to="/">
+        <Link to="/dashboard">
             <button className='bg-[#c1121f] p-1 rounded-md mb-10'>
-                    Back to Home Page
+                    Back to Dashboard
             </button>
         </Link>
     </div>
