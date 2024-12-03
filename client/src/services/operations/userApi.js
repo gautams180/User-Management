@@ -67,7 +67,7 @@ export const updateUserDetails = (id, firstName, lastName, email, navigate) => {
       setLoading(true);
   
       try {
-          // console.log(firstName, lastName, email);
+          console.log(firstName, lastName, email);
           const response = await apiConnector(
               "PUT",
               "http://localhost:4000/users/updateUser",
@@ -117,6 +117,7 @@ export const deleteProfile = (id, navigate) => {
           }
 
           console.log("Delete User API response......",response);
+          toast.success("Profile Deleted Successfully");
           navigate("/");
       }
       catch(error) {

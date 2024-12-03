@@ -13,27 +13,30 @@ const Profile = () => {
     console.log("Id: ",id);
 
     const [formData, setFormData] = useState({
-      firstname: user.firstName,
+      firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
     })
 
-    const {firstname,lastName,email} = formData;
+    const {firstName,lastName,email} = formData;
 
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleOnChange = (e) => {
+        console.log("Target", e.target.name);
+        console.log("Value", e.target.value);
         setFormData((prevData) => ({
             ...prevData,
             [e.target.name]: e.target.value,
         }))
+        console.log("New formData: ",firstName);
     }
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateUserDetails(id, firstname, lastName, email, navigate));
+        dispatch(updateUserDetails(id, firstName, lastName, email, navigate));
     }
 
     async function handleDelete() {
@@ -61,9 +64,9 @@ const Profile = () => {
                     <input 
                         type='text'
                         name='firstName'
-                        
+                        defaultValue={firstName}
                         onChange={handleOnChange}
-                        placeholder={`${firstname}`}
+                        placeholder="Enter First Name"
                         className='rounded-md p-2 text-black'
                     />
                 </label>
@@ -72,9 +75,9 @@ const Profile = () => {
                     <input 
                         type='text'
                         name='lastName'
-
+                        defaultValue={lastName}
                         onChange={handleOnChange}
-                        placeholder={lastName}
+                        placeholder="Enter Last Name"
                         className='rounded-md p-2 text-black'
                     />
                 </label>
@@ -83,7 +86,7 @@ const Profile = () => {
                     <input 
                         type='text'
                         name='email'
-                        value={email}
+                        defaultValue={email}
                         onChange={handleOnChange}
                         placeholder={email}
                         className='rounded-md p-2 text-black'
