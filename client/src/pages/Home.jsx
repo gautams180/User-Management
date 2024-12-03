@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 const Home = () => {
 
   return (
-    <div className='h-screen flex justify-center items-center'>
+    <div className='h-screen flex flex-col gap-10 justify-center items-center'>
+
+      <h1 className='text-4xl text-black font-semibold'>User Management</h1>
       <div className='flex gap-2'>
 
         <Link to="/login">
